@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    @apply bg-surface text-on-surface font-sans;
+    font-size: 16px;
+    line-height: 24px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    scrollbar-width: none;
+  }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    user-select: none;
+  }
+}
+
+@layer components {
+  .font-display-lg,
+  .font-headline-lg,
+  .font-headline-md,
+  .font-headline-sm {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-body-lg,
+  .font-body-md,
+  .font-label-lg,
+  .font-label-md {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .container-prime {
+    @apply max-w-container mx-auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (min-width: 1024px) {
+    .container-prime {
+      padding-left: 64px;
+      padding-right: 64px;
+    }
+  }
+
+  .section-gap {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  @media (min-width: 1024px) {
+    .section-gap {
+      padding-top: 120px;
+      padding-bottom: 120px;
+    }
+  }
+
+  .heading-display {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  @media (min-width: 1024px) {
+    .heading-display {
+      font-size: 64px;
+      line-height: 72px;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  .heading-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    line-height: 56px;
+    font-weight: 600;
+  }
+  @media (min-width: 1024px) {
+    .heading-h1 {
+      font-size: 48px;
+      line-height: 56px;
+    }
+  }
+
+  .heading-h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+  }
+  @media (min-width: 1024px) {
+    .heading-h2 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+
+  .heading-h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+  }
+
+  .body-lg {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+  }
+  .body-md {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+  .label-lg {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+  .label-md {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-on-primary px-8 py-4 label-lg uppercase tracking-widest;
+    @apply transition-all duration-300 relative overflow-hidden inline-block;
+  }
+  .btn-primary::after {
+    content: '';
+    @apply absolute bottom-0 left-0 h-1 w-0 bg-secondary;
+    transition: width 0.5s ease;
+  }
+  .btn-primary:hover::after {
+    @apply w-full;
+  }
+
+  .btn-secondary {
+    @apply border border-primary text-primary px-8 py-4 label-lg uppercase tracking-widest;
+    @apply transition-all duration-300;
+  }
+  .btn-secondary:hover {
+    @apply bg-primary text-on-primary;
+  }
+
+  .btn-ghost {
+    @apply text-on-surface label-lg uppercase tracking-widest relative;
+    @apply transition-all duration-300;
+  }
+  .btn-ghost::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 h-px w-0 bg-secondary;
+    transition: width 0.5s ease;
+  }
+  .btn-ghost:hover::after {
+    @apply w-full;
+  }
+
+  .gold-underline {
+    @apply relative inline-block;
+  }
+  .gold-underline::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 h-px bg-primary w-12;
+    transition: all 0.5s ease;
+  }
+  .gold-underline:hover::after {
+    @apply w-20 bg-secondary;
+  }
+
+  .input-prime {
+    @apply w-full bg-transparent border-b border-outline py-3 body-md outline-none transition-colors;
+  }
+  .input-prime:focus {
+    @apply border-secondary;
+  }
+
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
